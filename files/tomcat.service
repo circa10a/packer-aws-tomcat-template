@@ -1,0 +1,23 @@
+[Unit]
+Description=Tomcat
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+WorkingDirectory=/tomcat/
+
+Environment="CATALINA_PID=/tomcat/run/tomcat.pid"
+Environment="CATALINA_HOME=/tomcat/"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+ExecStart=/tomcat/bin/startup.sh
+ExecStop=/tomcat/bin/shutdown.sh
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

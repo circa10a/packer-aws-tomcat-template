@@ -1,0 +1,7 @@
+language: minimal
+
+services:
+  - docker
+
+script:
+  - docker run --rm -v $(pwd):/tmp -w /tmp hashicorp/packer:light validate *.json && packer inspect *.json
