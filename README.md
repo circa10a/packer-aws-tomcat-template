@@ -29,3 +29,10 @@ packer build build.json
 ## Usage
 
 Once AMI is created and launched, tomcat will be up and listening on port `8080` at the root context path(`/`).
+
+### Public AMI's
+
+The following images are available and published in `us-east-1`:
+
+- `tomcat-9.0.30-jdk-1.8.0-amzn-linux.x86_64-hvm-ebs`
+- `tomcat-9.0.30-jdk-11-amzn-linux.x86_64-hvm-ebs`

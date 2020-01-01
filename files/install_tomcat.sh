@@ -11,7 +11,12 @@ GROUPID="1001"
 sudo yum update -y && \
 sudo yum upgrade -y
 # Install JRE
-sudo yum install -y "java-${JAVA_VERSION}-openjdk-headless.x86_64"
+# Java 11
+if [[ "$JAVA_VERSION" =~ .*11.* ]]; then
+    sudo amazon-linux-extras install java-openjdk11 -y
+else
+    sudo yum install "java-${JAVA_VERSION}-openjdk-headless.x86_64" -y
+fi
 # Add non-root user
 sudo groupadd --gid "$GROUPID" "$USER" && \
     sudo adduser \

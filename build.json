@@ -16,7 +16,10 @@
     "builders": [
         {
             "access_key": "{{user `aws_access_key`}}",
-            "ami_name": "linux-aws-tomcat-{{isotime \"2006-01-02\"}}",
+            "ami_name": "tomcat-{{user `tomcat_version`}}-jdk-{{user `java_version`}}-amzn-linux.x86_64-hvm-ebs",
+            "ami_groups": [
+                "all"
+            ],
             "instance_type": "t2.micro",
             "region": "{{user `region`}}",
             "secret_key": "{{user `aws_secret_key`}}",
@@ -42,7 +45,7 @@
                 "TOMCAT_VERSION={{user `tomcat_version`}}",
                 "JAVA_VERSION={{user `java_version`}}"
             ],
-            "script": "./install_tomcat.sh"
+            "script": "./files/install_tomcat.sh"
         },
         {
             "type": "file",
