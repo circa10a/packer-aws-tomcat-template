@@ -17,9 +17,13 @@
         {
             "access_key": "{{user `aws_access_key`}}",
             "ami_name": "tomcat-{{user `tomcat_version`}}-jdk-{{user `java_version`}}-amzn-linux.x86_64-hvm-ebs",
+            "ami_description": "Apache Tomcat {{user `tomcat_version`}} with java {{user `java_version`}} installed and systemd enabled. Based on Amazon linux.",
             "ami_groups": [
                 "all"
             ],
+            "tags": {
+                "source": "https://github.com/circa10a/packer-aws-tomcat-template"
+              },
             "instance_type": "t2.micro",
             "region": "{{user `region`}}",
             "secret_key": "{{user `aws_secret_key`}}",
