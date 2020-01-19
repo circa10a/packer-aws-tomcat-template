@@ -10,9 +10,9 @@ script: |
     hashicorp/packer:light \
     validate *.json && packer inspect *.json
 
-deploy:
-  - provider: script
-    skip_cleanup: true
-    on:
-      branch: master
-    script: docker run --rm --entrypoint bash -e AWS_ACCESS_KEY_ID="$AWS_ID" -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_KEY" -v $(pwd):/tmp -w /tmp hashicorp/packer:light -c "./build_images.sh"
+# deploy:
+#   - provider: script
+#     skip_cleanup: true
+#     on:
+#       branch: master
+#     script: docker run --rm --entrypoint bash -e AWS_ACCESS_KEY_ID="$AWS_ID" -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_KEY" -v $(pwd):/tmp -w /tmp hashicorp/packer:light -c "./build_images.sh"
