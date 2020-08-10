@@ -9,10 +9,17 @@ source "amazon-ebs" "tomcat" {
   region        = var.region
   secret_key    = var.aws_secret_key
   source_ami_filter {
-    filters {
-      virtualization-type = "hvm"
-      name                = "amzn2-ami-hvm-2.0.*-x86_64-gp2"
-      root-device-type    = "ebs"
+    filter {
+      key   = "virtualization-type"
+      value = "hvm"
+    }
+    filter {
+      key   = "root-device-type"
+      value = "ebs"
+    }
+    filter {
+      key   = "name"
+      value = "amzn2-ami-hvm-2.0.*-x86_64-gp2"
     }
     owners = [
       "amazon"

@@ -3,13 +3,12 @@ language: minimal
 services:
   - docker
 
-# TODO: Uncomment when packer supports validating hcl
-# script: |
-#   docker run --rm \
-#     -v $(pwd):/tmp \
-#     -w /tmp \
-#     hashicorp/packer:light \
-#     validate . && packer inspect .
+script: |
+  docker run --rm \
+    -v $(pwd):/tmp \
+    -w /tmp \
+    hashicorp/packer:light \
+    validate -var aws_access_key="test" -var aws_secret_key="test" .
 
 # deploy:
 #   - provider: script
