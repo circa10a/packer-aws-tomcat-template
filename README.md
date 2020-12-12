@@ -2,7 +2,7 @@
 
 A packer template written in HCL to build AMI's with apache tomcat installed and systemd enabled. Based on Amazon linux.
 
-[![Build Status](https://travis-ci.org/circa10a/packer-aws-tomcat-template.svg?branch=master)](https://travis-ci.org/circa10a/packer-aws-tomcat-template)
+[![Build Status](https://travis-ci.org/circa10a/packer-aws-tomcat-template.svg?branch=main)](https://travis-ci.org/circa10a/packer-aws-tomcat-template)
 
 ## Build
 
