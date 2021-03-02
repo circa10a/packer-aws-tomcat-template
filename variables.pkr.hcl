@@ -10,7 +10,7 @@ variable "region" {
 }
 variable "tomcat_version" {
   type    = string
-  default = "9.0.31"
+  default = "9.0.43"
 }
 variable "java_version" {
   type    = string

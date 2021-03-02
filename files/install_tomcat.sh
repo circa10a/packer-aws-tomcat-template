@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TOMCAT_VERSION=${TOMCAT_VERSION:-"9.0.30"}
+TOMCAT_VERSION=${TOMCAT_VERSION:-"9.0.43"}
 JAVA_VERSION=${JAVA_VERSION:="1.8.0"}
 INSTALL_DIR=${INSTALL_DIR:-"/tomcat"}
 USER="tomcat"
@@ -27,7 +27,7 @@ sudo groupadd --gid "$GROUPID" "$USER" && \
     --uid "$USERID" \
     "$USER"
 # Download tomcat
-sudo wget -qO- "https://www-us.apache.org/dist/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sudo tar xvz -C /
+sudo wget -qO- "https://archive.apache.org/dist/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sudo tar xvz -C /
 # Change Permissions
 sudo chown -R "$USERID":"$GROUPID" "/apache-tomcat-${TOMCAT_VERSION}"
 sudo ln -sf "/apache-tomcat-${TOMCAT_VERSION}" "$INSTALL_DIR"
